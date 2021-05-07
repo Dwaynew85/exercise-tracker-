@@ -1,6 +1,6 @@
 import React from 'react'
 
-function EditExercises() {
+function EditExercise() {
     return (
         <div>
             <p>You are on the Edit Exercise component</p>            
@@ -8,4 +8,4 @@ function EditExercises() {
     )
 }
 
-export default EditExercises
+export default EditExercise
