@@ -13,12 +13,35 @@ function CreateExercise() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        
+        const exercise = {
+            username,
+            description,
+            duration,
+            date,
+            users
+        }
+        console.log(exercise)
+        window.location = '/'
     }
 
     return (
         <div>
-            <p>You are on the Create Exercise component</p>            
+            <h3>Create New Exercise Log</h3>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label>Username: </label>
+                    <select ref="userInput" 
+                        required
+                        className="form-control"
+                        value={username}
+                        onChange={((event) => setUsername(event.target.value))}
+                    >
+                        {
+                            this.users.map(user => <option key={user} value={user}>{user}</option>)
+                        }
+                    </select>
+                </div>
+            </form>
         </div>
     )
 }
