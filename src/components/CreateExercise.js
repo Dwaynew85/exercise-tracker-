@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import DatePicker from "react-datepicker";
 
 function CreateExercise() {
     const [username, setUsername] = useState('');
