@@ -31,14 +31,14 @@ function CreateExercise() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Username: </label>
-                    <select ref="userInput" 
+                    <select 
                         required
                         className="form-control"
                         value={username}
                         onChange={(event) => setUsername(event.target.value)}
                     >
                         {
-                            this.users.map(user => <option key={user} value={user}>{user}</option>)
+                            users.map(user => <option key={user} value={user}>{user}</option>)
                         }
                     </select>
                 </div>
