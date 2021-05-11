@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function CreateExercise() {
     const [username, setUsername] = useState('');
@@ -8,9 +9,12 @@ function CreateExercise() {
     const [date, setDate] = useState(new Date());
     const [users, setUsers] = useState([]);
 
-    const handleChange = e => {
-        console.log(e)
-    }
+    useEffect(() => {
+        return (
+            setUsers(["test user"]),
+            setUsername("test user")
+        )
+    }, [])
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -47,7 +51,7 @@ function CreateExercise() {
                     <input 
                         type="text"
                         className="form-control"
-                        value={duration}
+                        value={description}
                         onChange={(event) => setDescription(event.target.value)}
                     />
                 </div>
@@ -65,7 +69,7 @@ function CreateExercise() {
                     <div>
                         <DatePicker
                             selected={date}
-                            onChange={(event) => setDate(event.target.value)}
+                            onChange={(event) => console.log(event)}
                         />
                     </div>
                 </div>
