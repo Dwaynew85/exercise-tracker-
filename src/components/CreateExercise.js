@@ -69,7 +69,7 @@ function CreateExercise() {
                     <div>
                         <DatePicker
                             selected={date}
-                            onChange={(event) => console.log(event)}
+                            onChange={(event) => setDate(event.toLocaleString())}
                         />
                     </div>
                 </div>
