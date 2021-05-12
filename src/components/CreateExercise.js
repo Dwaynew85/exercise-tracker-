@@ -22,11 +22,11 @@ function CreateExercise() {
             username,
             description,
             duration,
-            date,
+            date: date.toLocaleString(),
             users
         }
         console.log(exercise)
-        window.location = '/'
+        // window.location = '/'
     }
 
     return (
@@ -69,7 +69,7 @@ function CreateExercise() {
                     <div>
                         <DatePicker
                             selected={date}
-                            onChange={(event) => setDate(event.toLocaleString())}
+                            onChange={(event) => setDate(event)}
                         />
                     </div>
                 </div>
