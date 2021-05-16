@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Exercise({exercise}) {
+function Exercise({exercise, deleteExercise}) {
     return (
         <tr>
          <td>{exercise.username}</td>
          <td>{exercise.description}</td>   
          <td>{exercise.duration}</td>   
-         <td>{exercise.date.substring(0,10)}</td>   
+         <td>{exercise.date.substring(0,10)}</td>
+         <td>
+             <Link to={"/edit/"+exercise.id}>edit</Link> | <a href="#" onClick={ () => { deleteExercise(exercise.id) }}>delete</a>
+        </td>   
         </tr>
     )
 }
