@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Exercise from './Exercise';
 
 function ExercisesList() {
     const [exercises, setExercises] = useState([])
@@ -23,9 +23,29 @@ function ExercisesList() {
         setExercises(exercises.filter(el => el._id !== id))
     }
 
+    const exerciseList = () => {
+        return exercises.map(exercise => {
+            return <Exercise exercise={exercise} deleteExercise={deleteExercise} key={exercise.id}/>;
+        })
+    }
+
     return (
         <div>
-            <p>You are on the Exercise List component</p>
+            <h3>Logged Exercises</h3>
+            <table className="table">
+                <thead className="thead-light">
+                    <tr>
+                        <th>Username</th>
+                        <th>Description</th>
+                        <th>Duration</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    { exerciseList() }
+                </tbody>
+            </table>
         </div>
     )
 }
