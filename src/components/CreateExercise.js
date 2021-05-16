@@ -36,7 +36,7 @@ function CreateExercise() {
             .then(res => console.log(res.data));
 
         console.log(exercise)
-        // window.location = '/'
+        window.location = '/'
     }
 
     return (
