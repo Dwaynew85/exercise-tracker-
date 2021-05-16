@@ -20,7 +20,7 @@ function ExercisesList() {
     const deleteExercise = id => {
         axios.delete('http://localhost:5000/exercises/' + id)
             .then(res => console.log(res.data));
-        setExercises(exercises.filter(el => el._id !== id))
+        setExercises(exercises.filter(exercise => exercise._id !== id))
     }
 
     const exerciseList = () => {
