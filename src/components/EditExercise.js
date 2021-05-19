@@ -28,7 +28,7 @@ function EditExercise() {
             username,
             description,
             duration,
-            date: date.toLocaleString(),
+            date: date.toLocaleString(), // may need to be removed.
             users
         }
 
