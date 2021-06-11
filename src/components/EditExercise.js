@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function EditExercise() {
+function EditExercise(props) {
     const [username, setUsername] = useState('');
     const [description, setDescription] = useState('');
     const [duration, setDuration] = useState(0);
@@ -12,6 +12,16 @@ function EditExercise() {
 
     useEffect(() => {
         return (
+            axios.get('http://localhost:5000/exercises/'+props.match.params.id)
+                .then(response => {
+                    setUsername(response.data.username);
+                    setDescription(response.data.description);
+                    setDuration(response.data.duration);
+                    setDate(new Date(response.data.date));
+                })
+                .catch(function (err) {
+                    console.log(err)
+                }),
             axios.get('http://localhost:5000/users/')
                 .then(response => {
                     if (response.data.length > 0) {
